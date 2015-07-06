@@ -15,6 +15,7 @@
         <httpcomponents.version>4.4.1</httpcomponents.version>
         <jetty.version>9.2.9.v20150224</jetty.version>
         <http.version>4.4.1</http.version>
+        <mysql.version>5.1.36</mysql.version>
     </properties>
 
     <dependencies>
@@ -38,7 +39,6 @@
             <artifactId>httpclient</artifactId>
             <version>${http.version}</version>
         </dependency>
-
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-views</artifactId>
@@ -48,6 +48,21 @@
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-views-freemarker</artifactId>
             <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-jdbi</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlets</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
 
 

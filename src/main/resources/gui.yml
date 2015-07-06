@@ -1,0 +1,12 @@
+server:
+  applicationConnectors:
+  - type: http
+    port: 8080
+  adminConnectors:
+  - type: http
+    port: 8181
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: root
+  password: frodemann
+  url: jdbc:mysql://localhost/fhe

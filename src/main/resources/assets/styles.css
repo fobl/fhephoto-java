@@ -1,0 +1,88 @@
+body {
+    max-width: 1000px;
+    background: #333333;
+    color: white;
+}
+
+.header {
+    border-bottom: 3px solid white;
+    margin-bottom: 20px;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: gray;
+}
+
+.header .menu {
+    float: right;
+}
+
+.header a {
+    color: white;
+    text-transform: uppercase;
+    display: inline;
+    text-decoration: none;
+}
+
+.header a:hover {
+    text-decoration: underline;
+}
+
+.header h1, h2, h3 {
+    display: inline;
+    text-transform: uppercase;
+    color: white;
+}
+
+h2 {
+    text-transform: lowercase;
+}
+
+h4 {
+    display: inline;
+    text-transform: uppercase;
+    color: darkgray;
+}
+
+.left {
+    float: left;
+    width: 60%;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+.right {
+    float: right;
+    width: 35%;
+
+}
+.group:after {
+    content:"";
+    display: table;
+    clear: both;
+}
+
+.right img {
+    max-width: 70px;
+    padding: 6px;
+}
+
+.header img {
+    max-width: 100%;
+}
+
+.left img {
+    max-width: 100%;
+    height: auto;
+}
+@media screen and (max-width: 480px) {
+    .left,
+    .right {
+        float: none;
+        width: auto;
+    }
+}

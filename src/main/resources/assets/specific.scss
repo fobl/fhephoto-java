@@ -1,0 +1,139 @@
+.form-box {
+  background: $form-backround;
+  border: 1px solid black;
+  border-radius: $border-radius $border-radius 0 0;
+  width: $form-width;
+  padding: $form-padding;
+  margin-top: 22px;
+
+
+  h3 {
+    color: $label-color;
+  }
+
+  h5 {
+    color: black;
+  }
+}
+
+.cart {
+
+  padding-right: 5px;
+
+  img {
+    width: 50px;
+    margin-top: -20px;
+  }
+}
+
+.header {
+  .main_menu {
+    float: right;
+    text-transform: uppercase;
+    position: relative;
+    top: -20px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.left {
+  float: left;
+  width: 60%;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    padding-right: 10px;
+  }
+}
+
+.right {
+  float: right;
+  width: 35%;
+
+  img {
+    max-width: 70px;
+    padding: 6px;
+  }
+
+  .group:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .left,
+  .right {
+    float: none;
+    width: auto;
+  }
+}
+
+#searchForm {
+  margin-bottom: 22px;
+}
+
+#addPhoto {
+  margin-top: 22px;
+
+  img:active {
+    border: 3px solid green;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    display: inline;
+  }
+
+  img {
+    border: 3px solid white;
+    margin: 5px;
+  }
+
+  input[type=checkbox]:checked + label img {
+    border: 3px solid green;
+  }
+}
+
+.hoverTable {
+  margin: 0;
+  border: 1px solid black;
+  width:$table-width;
+  border-collapse:collapse;
+  color: $label-color;
+
+  td {
+    text-weight: bold;
+  }
+
+  td{
+    padding:7px; border:#4e95f4 1px solid;
+  }
+
+  tr{
+    background: $form-backround;
+  }
+
+  tr:hover {
+    background-color: $link-color;
+  }
+
+  tr:active{
+    background-color: darken($link-color, 10%);
+  }
+}
+
+.login {
+  margin-left: 100px;
+}

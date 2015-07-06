@@ -1,0 +1,19 @@
+$background-color: lighten(#333333, 5%);
+$page-width: 1000px;
+$font-color: white;
+$link-color: #ffff99;
+$body-margin: 22px;
+$menu-font-size: 130%;
+$hover-size: 110%;
+$form-padding: 22px;
+$table-margin: $form-padding;
+$border-radius: 10px;
+$form-backround: lighten(lightgray, 10%);
+$label-color: #09C;
+$form-width: 700px;
+$table-width: $form-width + 44px;
+
+
+@import 'normalize';
+@import 'common';
+@import 'specific';

@@ -1,0 +1,159 @@
+body, h1, h2, h3, h4, h5, a, a:link, a:hover, a:link, p, b, i, img, img:active, label {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: normal;
+  text-decoration: none;
+  color: white;
+  border: none; }
+
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+  margin: 22px;
+  max-width: 1000px;
+  background: #404040;
+  color: white; }
+
+h2 {
+  color: white;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  font-size: 150%;
+  font-weight: bold; }
+
+h3 {
+  color: white;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  font-size: 140%;
+  font-weight: bold; }
+
+h5 {
+  color: white;
+  font-size: 110%;
+  font-style: italic; }
+
+p {
+  color: white;
+  margin-top: 22px;
+  margin-bottom: 22px; }
+
+ul {
+  list-style-type: none;
+  margin: 22px 0 10px 0;
+  padding: 0; }
+
+ul li {
+  margin: 0;
+  padding: 0; }
+
+table {
+  margin: 22px; }
+
+label {
+  display: block;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 24px;
+  font-weight: bold;
+  color: #09C;
+  margin-top: 5px; }
+
+a, a:link {
+  color: #ffff99;
+  text-decoration: none; }
+
+a:hover {
+  color: #ffff99;
+  text-decoration: underline; }
+
+.form-box {
+  background: #ededed;
+  border: 1px solid black;
+  border-radius: 10px 10px 0 0;
+  width: 700px;
+  padding: 22px;
+  margin-top: 22px; }
+  .form-box h3 {
+    color: #09C; }
+  .form-box h5 {
+    color: black; }
+
+.cart {
+  padding-right: 5px; }
+  .cart img {
+    width: 50px;
+    margin-top: -20px; }
+
+.header .main_menu {
+  float: right;
+  text-transform: uppercase;
+  position: relative;
+  top: -20px; }
+.header img {
+  max-width: 100%; }
+
+.left {
+  float: left;
+  width: 60%;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 5px; }
+  .left img {
+    max-width: 100%;
+    height: auto;
+    padding-right: 10px; }
+
+.right {
+  float: right;
+  width: 35%; }
+  .right img {
+    max-width: 70px;
+    padding: 6px; }
+  .right .group:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+@media screen and (max-width: 480px) {
+  .left,
+  .right {
+    float: none;
+    width: auto; } }
+#searchForm {
+  margin-bottom: 22px; }
+
+#addPhoto {
+  margin-top: 22px; }
+  #addPhoto img:active {
+    border: 3px solid green; }
+  #addPhoto input {
+    display: none; }
+  #addPhoto label {
+    display: inline; }
+  #addPhoto img {
+    border: 3px solid white;
+    margin: 5px; }
+  #addPhoto input[type=checkbox]:checked + label img {
+    border: 3px solid green; }
+
+.hoverTable {
+  margin: 0;
+  border: 1px solid black;
+  width: 744px;
+  border-collapse: collapse;
+  color: #09C; }
+  .hoverTable td {
+    text-weight: bold; }
+  .hoverTable td {
+    padding: 7px;
+    border: #4e95f4 1px solid; }
+  .hoverTable tr {
+    background: #ededed; }
+  .hoverTable tr:hover {
+    background-color: #ffff99; }
+  .hoverTable tr:active {
+    background-color: #ffff66; }
+
+.login {
+  margin-left: 100px; }

@@ -1,0 +1,70 @@
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+  margin: $body-margin;
+  max-width: $page-width;
+  background: $background-color;
+  color: $font-color;
+}
+
+h2 {
+  color:  $font-color;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+h3 {
+  color: $font-color;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  font-size: 140%;
+  font-weight: bold;
+}
+
+h5 {
+  color: $font-color;
+  font-size: 110%;
+  font-style: italic;
+}
+
+p {
+  color: $font-color;
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 22px 0 10px 0;
+  padding: 0;
+}
+
+ul li {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  margin: $table-margin;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 24px;
+  font-weight: bold;
+  color: $label-color;
+  margin-top: 5px;
+}
+
+a, a:link {
+  color: $link-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $link-color;
+  text-decoration: underline;
+}
