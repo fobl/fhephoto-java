@@ -1,14 +1,12 @@
-package no.fhe.gui.resource;
+package no.fhe.gui.view;
 
 import io.dropwizard.views.View;
 import no.fhe.gui.vo.Image;
 
-import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/")
 @Produces(MediaType.TEXT_HTML)
 public class ImageView extends View {
 

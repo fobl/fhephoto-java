@@ -2,6 +2,7 @@ package no.fhe.gui.resource;
 
 import com.codahale.metrics.annotation.Timed;
 import no.fhe.gui.dao.ImageDao;
+import no.fhe.gui.view.ImageView;
 import no.fhe.gui.vo.Image;
 import org.skife.jdbi.v2.DBI;
 
@@ -21,10 +22,17 @@ public class ImageResource {
 
     @GET
     @Timed
-    @Path("{customerId}")
-    public ImageView images(@PathParam("customerId") String customerId){
+    public ImageView images(@QueryParam("customerId") String customerId){
         List<Image> images = imageDao.imagesForCustomer(customerId);
         return new ImageView(images);
     }
+
+    @POST
+    @Timed
+    public ImageView imagesPost(@QueryParam("customerId") String customerId){
+        List<Image> images = imageDao.imagesForCustomer(customerId);
+        return new ImageView(images);
+    }
+
 
 }

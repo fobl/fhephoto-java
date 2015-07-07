@@ -2,15 +2,19 @@ package no.fhe.gui;
 
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
-import io.dropwizard.client.HttpClientBuilder;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
+import no.fhe.gui.filter.LoginFilter;
+import no.fhe.gui.resource.AddResource;
 import no.fhe.gui.resource.ImageResource;
-import no.fhe.gui.resource.ImageView;
-import org.apache.http.client.HttpClient;
+import no.fhe.gui.resource.LoginResource;
+import no.fhe.gui.resource.SearchResource;
 import org.skife.jdbi.v2.DBI;
+
+import javax.servlet.DispatcherType;
+import java.util.EnumSet;
 
 public class GuiApplication extends Application<GuiConfiguration> {
 
@@ -23,8 +27,20 @@ public class GuiApplication extends Application<GuiConfiguration> {
         DBIFactory factory = new DBIFactory();
         DBI jdbi = factory.build(environment, config.getDataSourceFactory(), "database");
 
-        ImageResource resource = new ImageResource(jdbi);
-        environment.jersey().register(resource);
+        ImageResource imageResource = new ImageResource(jdbi);
+        environment.jersey().register(imageResource);
+
+        AddResource addResource = new AddResource(jdbi);
+        environment.jersey().register(addResource);
+
+        LoginResource loginResource = new LoginResource(jdbi);
+        environment.jersey().register(loginResource);
+
+        SearchResource searchResource = new SearchResource(jdbi);
+        environment.jersey().register(searchResource);
+
+        environment.servlets().addFilter("LoginFilter", new LoginFilter(jdbi))
+                .addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), true, "/*");
     }
 
     @Override
