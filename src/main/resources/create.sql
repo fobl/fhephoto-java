@@ -1,6 +1,5 @@
 drop table if exists orderline;
-drop table if exists category;
-drop table if exists image;
+drop table if exists galleryVo;
 drop table if exists customer;
 
 create table customer (
@@ -19,24 +18,25 @@ create table customer (
   primary key(customer_id)
 );
 
-create table category (
-  category_id int not null auto_increment,
-  title varchar(255),
-  customer_id int not null,
-  foreign key (customer_id) references customer(customer_id),
-  primary key(category_id)
-);
-
-create table image (
+create table galleryVo (
   image_id int not null auto_increment,
   url varchar(255),
-  image varchar(255),
+  galleryVo varchar(255),
   fullsize varchar(255),
   thumbnail varchar(255),
   customer_id int,
-  bought int(1),
+  created_date date not null,
   foreign key (customer_id) references customer(customer_id),
   primary key(image_id)
+);
+
+create table image_gallery (
+  image_gallery_id INT NOT NULL AUTO_INCREMENT,
+  image_id    INT NOT NULL,
+  customer_id INT NOT NULL,
+  FOREIGN KEY (customer_id) REFERENCES customer (customer_id),
+  FOREIGN KEY (image_id) REFERENCES galleryVo (image_id),
+  PRIMARY KEY (image_gallery_id)
 );
 
 create table orderline (
@@ -48,7 +48,7 @@ create table orderline (
   paid int(1) default 0,
   currency varchar(3) default 'EUR',
   foreign key (customer_id) references customer(customer_id),
-  foreign key (image_id) references image(image_id),
+  foreign key (image_id) references galleryVo(image_id),
   primary key(orderline_id),
   UNIQUE (image_id)
 );

@@ -1,7 +1,7 @@
-package no.fhe.gui.resource;
+package no.fhe.gui.login;
 
 import com.codahale.metrics.annotation.Timed;
-import no.fhe.gui.view.LoginView;
+import no.fhe.gui.login.LoginView;
 import org.skife.jdbi.v2.DBI;
 
 import javax.ws.rs.GET;

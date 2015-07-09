@@ -1,6 +1,6 @@
-package no.fhe.gui.vo;
+package no.fhe.gui.gallery;
 
-public class Image {
+public class GalleryVo {
 
     private String imageId;
     private String orderlineId;

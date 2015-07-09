@@ -60,41 +60,41 @@
     <div id="addPhoto">
         <?php
             if(!empty($_REQUEST['customer_id'])) {
-                echo '<h3>Add or remove images</h3>';
+                echo '<h3>Add or remove galleries</h3>';
 
         $i = 0;
-        if (!empty($action->images)) {
-        foreach ($action->images as $image) {
-        if ($image['bought'] != '1') {
-        if ($image['customer_id'] == $action->customerDao->customer_id) {
-        echo '<input type="checkbox" id="image_' . $image['image_id'] . '" name="image_' . $image['image_id'] . '" checked="checked">';
+        if (!empty($action->galleries)) {
+        foreach ($action->galleries as $galleryVo) {
+        if ($galleryVo['bought'] != '1') {
+        if ($galleryVo['customer_id'] == $action->customerDao->customer_id) {
+        echo '<input type="checkbox" id="image_' . $galleryVo['image_id'] . '" name="image_' . $galleryVo['image_id'] . '" checked="checked">';
         } else {
-        echo '<input type="checkbox" id="image_' . $image['image_id'] . '" name="image_' . $image['image_id'] . '">';
+        echo '<input type="checkbox" id="image_' . $galleryVo['image_id'] . '" name="image_' . $galleryVo['image_id'] . '">';
         }
-        echo '<label for="image_' . $image['image_id'] . '">';
-        echo '<img src="images/' . $image['thumbnail'] . '" \>';
+        echo '<label for="image_' . $galleryVo['image_id'] . '">';
+        echo '<img src="galleries/' . $galleryVo['thumbnail'] . '" \>';
         echo '</label>';
         $i++;
         }
         }
         }
         if ($i == 0) {
-        echo '<h5>No images to add, please upload images.</h5>';
+        echo '<h5>No galleries to add, please upload galleries.</h5>';
         }
 
         echo '<h3>Customer already bought</h3>';
 
         $i = 0;
-        if (!empty($action->images)) {
-        foreach ($action->images as $image) {
-        if ($image['bought'] == '1') {
-        echo '<img src="images/' . $image['thumbnail'] . '" \>';
+        if (!empty($action->galleries)) {
+        foreach ($action->galleries as $galleryVo) {
+        if ($galleryVo['bought'] == '1') {
+        echo '<img src="galleries/' . $galleryVo['thumbnail'] . '" \>';
         $i++;
         }
         }
         }
         if ($i == 0) {
-        echo '<h5>Customer have not bought any images.</h5>';
+        echo '<h5>Customer have not bought any galleries.</h5>';
         }
         }
         ?>

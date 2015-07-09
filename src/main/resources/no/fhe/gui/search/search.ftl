@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="" type="no.fhe.gui.view.SearchView" -->
+<#-- @ftlvariable name="" type="no.fhe.gui.search.SearchView" -->
 <#include "/common/header.ftl"/>
 
 <form class="form-box" id="searchForm" action="search" method="post">
@@ -16,8 +16,8 @@
         <th>Email</th>
         <th>Mobile</th>
     </tr>
-<#list getCustomers() as customer>
-    <tr onclick="location.href='add/${customer.getCustomerId()}'">
+<#list getResult() as customer>
+    <tr onclick="location.href='add/${customer.getUserId()}'">
         <td>${customer.getFirstname()}</a></td>
         <td>${customer.getLastname()}</a></td>
         <td>${customer.getEmail()}</a></td>

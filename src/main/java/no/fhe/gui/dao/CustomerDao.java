@@ -1,9 +1,7 @@
 package no.fhe.gui.dao;
 
 import no.fhe.gui.mapper.CustomerMapper;
-import no.fhe.gui.mapper.ImageMapper;
 import no.fhe.gui.vo.Customer;
-import org.joda.time.LocalDate;
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
@@ -13,17 +11,9 @@ import java.util.List;
 
 @RegisterMapper(CustomerMapper.class)
 public interface CustomerDao {
-    @SqlQuery("select * from customer where email=:email and password=:password")
-    Customer customerLogin(@Bind("email") String email, @Bind("password") String password);
 
-    @SqlUpdate("update customer set login_attempts = login_attempts + 1, login_date = now()")
-    void updateFailedLogin();
 
-    @SqlUpdate("update customer set login_date = now(), login_key = :login_key")
-    void updateLoginKey(@Bind("login_key") String loginKey);
 
-    @SqlQuery("select * from customer where login_key = :login_key and email = :email")
-    Customer isLoggedIn(@Bind("login_key") String key, @Bind("email") String email);
 
     @SqlQuery("select * from customer where email like :search")
     List<Customer> search(@Bind("search") String search);

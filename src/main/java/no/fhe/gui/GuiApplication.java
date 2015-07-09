@@ -6,11 +6,11 @@ import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
-import no.fhe.gui.filter.LoginFilter;
+import no.fhe.gui.login.LoginFilter;
 import no.fhe.gui.resource.AddResource;
-import no.fhe.gui.resource.ImageResource;
-import no.fhe.gui.resource.LoginResource;
-import no.fhe.gui.resource.SearchResource;
+import no.fhe.gui.gallery.GalleryResource;
+import no.fhe.gui.login.LoginResource;
+import no.fhe.gui.search.SearchResource;
 import org.skife.jdbi.v2.DBI;
 
 import javax.servlet.DispatcherType;
@@ -27,7 +27,7 @@ public class GuiApplication extends Application<GuiConfiguration> {
         DBIFactory factory = new DBIFactory();
         DBI jdbi = factory.build(environment, config.getDataSourceFactory(), "database");
 
-        ImageResource imageResource = new ImageResource(jdbi);
+        GalleryResource imageResource = new GalleryResource(jdbi);
         environment.jersey().register(imageResource);
 
         AddResource addResource = new AddResource(jdbi);

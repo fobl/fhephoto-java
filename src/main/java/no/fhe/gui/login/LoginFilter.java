@@ -1,6 +1,5 @@
-package no.fhe.gui.filter;
+package no.fhe.gui.login;
 
-import no.fhe.gui.dao.CustomerDao;
 import no.fhe.gui.vo.Customer;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.skife.jdbi.v2.DBI;
@@ -15,7 +14,7 @@ import java.util.UUID;
 public class LoginFilter implements Filter {
 
     private DBI jdbi;
-    private CustomerDao customerDao;
+    private LoginDao loginDao;
     private static final String FHE_LOGIN_KEY = "fhe_login_key";
     private static final String FHE_LOGIN_EMAIL = "fhe_login_email";
     private static final String COOKIE_PATH = "fhe";
@@ -26,7 +25,7 @@ public class LoginFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        this.customerDao = jdbi.onDemand(CustomerDao.class);
+        this.loginDao = jdbi.onDemand(LoginDao.class);
     }
 
     @Override
@@ -36,12 +35,12 @@ public class LoginFilter implements Filter {
         if(!url.contains("assets")) {
             if (!isLoggedIn((HttpServletRequest) req)) {
                 if (!login(req)) {
-                    customerDao.updateFailedLogin();
+                    loginDao.updateFailedLogin();
                     req.getRequestDispatcher("login").forward(req, res);
                 } else {
                     String key = UUID.randomUUID().toString();
                     addLoginCookies(key, req.getParameter("email"), (HttpServletResponse) res);
-                    customerDao.updateLoginKey(key);
+                    loginDao.updateLoginKey(key);
                 }
             }
         }
@@ -76,8 +75,8 @@ public class LoginFilter implements Filter {
             }
         }
         if(email != null && key != null){
-            Customer customer = customerDao.isLoggedIn(key, email);
-            if(customer != null) return true;
+            LoginVo login = loginDao.isLoggedIn(key, email);
+            if(login != null) return true;
         }
         return false;
     }
@@ -89,8 +88,8 @@ public class LoginFilter implements Filter {
             return false;
         }
         String md5Password = DigestUtils.md5Hex(password);
-        Customer customer = customerDao.customerLogin(email, md5Password);
-        if(customer == null){
+        LoginVo login = loginDao.login(email, md5Password);
+        if(login == null){
             return false;
         }
         return true;
@@ -99,6 +98,6 @@ public class LoginFilter implements Filter {
     @Override
     public void destroy() {
         jdbi = null;
-        customerDao = null;
+        loginDao = null;
     }
 }

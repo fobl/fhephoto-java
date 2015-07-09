@@ -1,8 +1,8 @@
-package no.fhe.gui.resource;
+package no.fhe.gui.search;
 
 import com.codahale.metrics.annotation.Timed;
 import no.fhe.gui.dao.CustomerDao;
-import no.fhe.gui.view.SearchView;
+import no.fhe.gui.search.SearchView;
 import no.fhe.gui.vo.Customer;
 import org.skife.jdbi.v2.DBI;
 
@@ -14,10 +14,10 @@ import java.util.List;
 @Produces(MediaType.TEXT_HTML)
 public class SearchResource {
 
-    private CustomerDao customerDao;
+    private SearchDao searchDao;
 
     public SearchResource(DBI jdbi) {
-        customerDao = jdbi.onDemand(CustomerDao.class);
+        searchDao = jdbi.onDemand(SearchDao.class);
     }
 
     @GET
@@ -32,8 +32,8 @@ public class SearchResource {
         if(null == search || "".equals(search)){
             return new SearchView();
         } else {
-            List<Customer> customers = customerDao.search('%'+search+'%');
-            return new SearchView(customers);
+            List<SearchVo> result = searchDao.search('%'+search+'%');
+            return new SearchView(result);
         }
     }
 }

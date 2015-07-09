@@ -1,27 +1,22 @@
 package no.fhe.gui.resource;
 
 import com.codahale.metrics.annotation.Timed;
+import no.fhe.gui.dao.AddDao;
 import no.fhe.gui.dao.CustomerDao;
-import no.fhe.gui.dao.ImageDao;
 import no.fhe.gui.view.AddView;
-import no.fhe.gui.vo.Customer;
 import org.skife.jdbi.v2.DBI;
-import org.skife.jdbi.v2.sqlobject.Bind;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.UriInfo;
 
 @Path("/add")
 @Produces(MediaType.TEXT_HTML)
 public class AddResource {
     private final CustomerDao customerDao;
-    private ImageDao imageDao;
+    private final AddDao addDao;
 
     public AddResource(DBI jdbi) {
-        imageDao = jdbi.onDemand(ImageDao.class);
+        addDao = jdbi.onDemand(AddDao.class);
         customerDao = jdbi.onDemand(CustomerDao.class);
     }
 
@@ -29,8 +24,7 @@ public class AddResource {
     @Timed
     @Path("/{customerId}")
     public AddView add(@PathParam("customerId") String customerId){
-        Customer customer = customerDao.fetchById(customerId);
-        return new AddView(customer);
+        return new AddView(customerDao.fetchById(customerId), addDao.imagesToSelect(customerId));
     }
 
     @GET
@@ -47,7 +41,7 @@ public class AddResource {
                                 @FormParam("mobilephone") String mobilephone, @FormParam("email") String email,
                                 @FormParam("password") String password, @FormParam("price") int price){
         customerDao.update(customerId, firstname, lastname, mobilephone, email, password, price);
-        return new AddView(customerDao.fetchById(customerId));
+        return new AddView(customerDao.fetchById(customerId), addDao.imagesToSelect(customerId));
     }
     
     @POST
@@ -56,6 +50,6 @@ public class AddResource {
                                 @FormParam("mobilephone") String mobilephone, @FormParam("email") String email,
                                 @FormParam("password") String password, @FormParam("price") int price){
         String customerId = customerDao.insert(firstname, lastname, mobilephone, email, password, price)+"";
-        return new AddView(customerDao.fetchById(customerId));
+        return new AddView(customerDao.fetchById(customerId), addDao.imagesToSelect(customerId));
     }
 }

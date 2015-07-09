@@ -9,4 +9,4 @@ database:
   driverClass: com.mysql.jdbc.Driver
   user: root
   password: frodemann
-  url: jdbc:mysql://localhost/fhe
+  url: jdbc:mysql://localhost/fhe2

@@ -1,4 +1,4 @@
-package no.fhe.gui.view;
+package no.fhe.gui.search;
 
 import io.dropwizard.views.View;
 import no.fhe.gui.vo.Customer;
@@ -11,19 +11,19 @@ import java.util.List;
 @Produces(MediaType.TEXT_HTML)
 public class SearchView extends View {
 
-    private final List<Customer> customers;
+    private final List<SearchVo> result;
 
-    public SearchView(List<Customer> customers) {
+    public SearchView(List<SearchVo> result) {
         super("search.ftl");
-        this.customers = customers;
+        this.result = result;
     }
 
     public SearchView() {
         super("search.ftl");
-        this.customers = new ArrayList();
+        this.result = new ArrayList();
     }
 
-    public List<Customer> getCustomers() {
-        return customers;
+    public List<SearchVo> getResult() {
+        return result;
     }
 }

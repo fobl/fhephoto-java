@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="" type="no.fhe.gui.view.ImageView" -->
+<#-- @ftlvariable name="" type="no.fhe.gui.gallery.GalleryView" -->
 <#include "/common/header.ftl"/>
 
 <form id="loginForm" class="login" action="/" method="post">

@@ -1,7 +1,6 @@
 package no.fhe.gui.mapper;
 
 import no.fhe.gui.vo.Customer;
-import no.fhe.gui.vo.Image;
 import org.joda.time.LocalDate;
 import org.skife.jdbi.v2.StatementContext;
 import org.skife.jdbi.v2.tweak.ResultSetMapper;

@@ -11,7 +11,7 @@
 </head>
 
 <div class="header">
-    <a href="index.php"><img src="http://127.0.0.1:8080/assets/logo.png" title="Fhe foto, Frank Hammerbekk Evensen" /></a>
+    <a href="http://127.0.0.1:8080/"><img src="http://127.0.0.1:8080/assets/logo.png" title="Fhe foto, Frank Hammerbekk Evensen" /></a>
     <div class="main_menu">
         <a href="about.php">About</a>
     </div>
