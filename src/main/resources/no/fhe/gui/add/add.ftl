@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="" type="no.fhe.gui.view.AddView" -->
+<#-- @ftlvariable name="" type="no.fhe.gui.add.AddView" -->
 <#include "/common/header.ftl"/>
 
 <form class="form-box" action="" method="post">

@@ -1,7 +1,7 @@
-package no.fhe.gui.dao;
+package no.fhe.gui.add;
 
-import no.fhe.gui.mapper.AddMapper;
-import no.fhe.gui.vo.AddVo;
+import no.fhe.gui.add.AddMapper;
+import no.fhe.gui.add.AddResource;
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;

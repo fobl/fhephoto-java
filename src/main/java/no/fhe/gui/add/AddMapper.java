@@ -1,6 +1,5 @@
-package no.fhe.gui.mapper;
+package no.fhe.gui.add;
 
-import no.fhe.gui.vo.AddVo;
 import org.skife.jdbi.v2.StatementContext;
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 

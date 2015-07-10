@@ -2,7 +2,6 @@ package no.fhe.gui;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
-import io.dropwizard.client.HttpClientConfiguration;
 import io.dropwizard.db.DataSourceFactory;
 
 import javax.validation.Valid;
@@ -15,7 +14,15 @@ public class GuiConfiguration extends Configuration {
     @JsonProperty
     private DataSourceFactory database = new DataSourceFactory();
 
+    @JsonProperty
+    private Paths paths = new Paths();
+
+
     public DataSourceFactory getDataSourceFactory() {
         return database;
+    }
+
+    public Paths getPaths() {
+        return paths;
     }
 }

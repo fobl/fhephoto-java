@@ -10,3 +10,6 @@ database:
   user: root
   password: frodemann
   url: jdbc:mysql://localhost/fhe2
+
+paths:
+  imageFiles: c:\\new_images

@@ -1,9 +1,7 @@
-package no.fhe.gui.resource;
+package no.fhe.gui.add;
 
 import com.codahale.metrics.annotation.Timed;
-import no.fhe.gui.dao.AddDao;
 import no.fhe.gui.dao.CustomerDao;
-import no.fhe.gui.view.AddView;
 import org.skife.jdbi.v2.DBI;
 
 import javax.ws.rs.*;

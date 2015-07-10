@@ -1,7 +1,6 @@
-package no.fhe.gui.view;
+package no.fhe.gui.add;
 
 import io.dropwizard.views.View;
-import no.fhe.gui.vo.AddVo;
 import no.fhe.gui.vo.Customer;
 
 import javax.ws.rs.Produces;

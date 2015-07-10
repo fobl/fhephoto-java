@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="" type="no.fhe.gui.view.AddView" -->
+<#-- @ftlvariable name="" type="no.fhe.gui.add.AddView" -->
 <#include "/common/header.ftl"/>
 
 <?php if(empty($_REQUEST['new']) && empty($_REQUEST['customer_id'])){ ?>

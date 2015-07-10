@@ -6,8 +6,9 @@ import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
+import no.fhe.gui.jobs.ImageJob;
 import no.fhe.gui.login.LoginFilter;
-import no.fhe.gui.resource.AddResource;
+import no.fhe.gui.add.AddResource;
 import no.fhe.gui.gallery.GalleryResource;
 import no.fhe.gui.login.LoginResource;
 import no.fhe.gui.search.SearchResource;
@@ -39,8 +40,11 @@ public class GuiApplication extends Application<GuiConfiguration> {
         SearchResource searchResource = new SearchResource(jdbi);
         environment.jersey().register(searchResource);
 
+        ImageJob imageJob = new ImageJob(jdbi, config.getPaths());
+
         environment.servlets().addFilter("LoginFilter", new LoginFilter(jdbi))
                 .addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), true, "/*");
+
     }
 
     @Override
