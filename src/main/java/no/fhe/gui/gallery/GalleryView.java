@@ -12,7 +12,7 @@ public class GalleryView extends View {
     private List<GalleryVo> galleryVos;
 
     public GalleryView(List<GalleryVo> galleries) {
-        super("galleryVos.ftl");
+        super("gallery.ftl");
         this.galleryVos = galleries;
     }
 

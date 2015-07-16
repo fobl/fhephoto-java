@@ -32,7 +32,7 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         String url = (((HttpServletRequest)req).getRequestURL()).toString();
 
-        if(!url.contains("assets")) {
+        if(!url.contains("assets") && !url.contains("imageJob")) {
             if (!isLoggedIn((HttpServletRequest) req)) {
                 if (!login(req)) {
                     loginDao.updateFailedLogin();

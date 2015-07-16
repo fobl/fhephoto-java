@@ -1,4 +1,4 @@
-package no.fhe.gui.dao;
+package no.fhe.gui.gallery;
 
 import no.fhe.gui.gallery.GalleryVo;
 import no.fhe.gui.gallery.GalleryMapper;
@@ -9,11 +9,11 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 import java.util.List;
 
 @RegisterMapper(GalleryMapper.class)
-public interface ImageDao {
-    @SqlQuery("select i.image_id, o.orderline_id, i.image, i.fullsize, i.thumbnail, o.paid, i.customer_id, i.url, c.image_zip" +
-            " from image i left join orderline o on i.image_id = o.image_id" +
-            " left join customer c on c.customer_id = i.customer_id" +
-            " where i.customer_id = :customerId")
+public interface GalleryDao {
+    @SqlQuery("select i.image_id, o.orderline_id, i.watermarked, i.fullsize, i.thumbnail, o.paid, i.customer_id, i.url, c.image_zip" +
+            " from image i left join orderline o on i.image_id = o.image_id")
+           // " left join customer c on c.customer_id = i.customer_id" +
+           // " where i.customer_id = :customerId")
     List<GalleryVo> imagesForCustomer(@Bind("customerId") String customerId);
 
 

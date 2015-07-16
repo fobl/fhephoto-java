@@ -1,21 +1,21 @@
 package no.fhe.gui.gallery;
 
 import com.codahale.metrics.annotation.Timed;
-import no.fhe.gui.dao.ImageDao;
 import org.skife.jdbi.v2.DBI;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/")
 @Produces(MediaType.TEXT_HTML)
 public class GalleryResource {
 
-    private ImageDao imageDao;
+    private GalleryDao imageDao;
 
     public GalleryResource(DBI jdbi) {
-        imageDao = jdbi.onDemand(ImageDao.class);
+        imageDao = jdbi.onDemand(GalleryDao.class);
     }
 
     @GET
@@ -28,8 +28,9 @@ public class GalleryResource {
     @POST
     @Timed
     public GalleryView imagesPost(@QueryParam("customerId") String customerId){
-        List<GalleryVo> galleries = imageDao.imagesForCustomer(customerId);
-        return new GalleryView(galleries);
+       // List<GalleryVo> galleries = imageDao.imagesForCustomer(customerId);
+       // return new GalleryView(galleries);
+        return new GalleryView(new ArrayList<GalleryVo>());
     }
 
 
